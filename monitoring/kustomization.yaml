@@ -9,8 +9,8 @@ resources:
   - prometheus/configmap.yaml
   - prometheus/deployment.yaml
   - prometheus/service.yaml
+  - prometheus/prometheus-pvc.yaml
   - grafana/configmap.yaml
   - grafana/deployment.yaml
   - grafana/service.yaml
-  - grafana/storageclass-ebs.yaml
   - grafana/grafana-pvc.yaml
