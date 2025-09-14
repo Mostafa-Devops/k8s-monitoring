@@ -13,4 +13,4 @@ resources:
   - grafana/deployment.yaml
   - grafana/service.yaml
   - grafana/storageclass-ebs.yaml
-  - grafana-pvc.yaml
+  - grafana/grafana-pvc.yaml
