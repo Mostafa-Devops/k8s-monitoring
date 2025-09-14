@@ -88,6 +88,12 @@ data:
         - source_labels: [__meta_kubernetes_service_name]
           action: replace
           target_label: kubernetes_name
+        - source_labels: [__address__]
+          target_label: pod_ip
+        - source_labels: [__meta_kubernetes_pod_name]
+          target_label: kubernetes_pod
+        - source_labels: [__meta_kubernetes_pod_node_name]
+          target_label: kubernetes_node
       - job_name: 'haproxy-metrics'
         kubernetes_sd_configs:
           - role: endpoints
