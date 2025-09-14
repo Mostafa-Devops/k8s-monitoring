@@ -92,17 +92,13 @@ data:
         kubernetes_sd_configs:
           - role: endpoints
         relabel_configs:
-          # Keep only haproxy-metrics service
           - source_labels: [__meta_kubernetes_service_name]
-            regex: haproxy-metrics
+            regex: haproxy-ingress-kubernetes-ingress
             action: keep
-
-          # Add node name as a new label
+          - source_labels: [__address__]
+            target_label: pod_ip
           - source_labels: [__meta_kubernetes_pod_node_name]
             target_label: kubernetes_node
 
-          # Add pod name as a new label
-          - source_labels: [__meta_kubernetes_pod_name]
-            target_label: kubernetes_pod
 
 
